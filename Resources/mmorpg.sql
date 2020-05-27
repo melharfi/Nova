@@ -597,11 +597,11 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'admin', '202cb962ac59075b964b07152d234b70', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
-INSERT INTO `users` VALUES ('2', 'admin2', '202cb962ac59075b964b07152d234b70', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
-INSERT INTO `users` VALUES ('5', 'morpher', '202cb962ac59075b964b07152d234b70', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
-INSERT INTO `users` VALUES ('6', 'admin3', '202cb962ac59075b964b07152d234b70', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
-INSERT INTO `users` VALUES ('7', 'admin4', '202cb962ac59075b964b07152d234b70', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
+INSERT INTO `users` VALUES ('1', 'admin', 'e10adc3949ba59abbe56e057f20f883e', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
+INSERT INTO `users` VALUES ('2', 'admin2', 'e10adc3949ba59abbe56e057f20f883e', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
+INSERT INTO `users` VALUES ('5', 'morpher', 'e10adc3949ba59abbe56e057f20f883e', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
+INSERT INTO `users` VALUES ('6', 'admin3', 'e10adc3949ba59abbe56e057f20f883e', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
+INSERT INTO `users` VALUES ('7', 'admin4', 'e10adc3949ba59abbe56e057f20f883e', '', '', '1', '', '', '', '', '', '', '', '0', '0', '0', '', 'ton chien favorie', 'vikiviki');
 
 -- ----------------------------
 -- Table structure for `version`
