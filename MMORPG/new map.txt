@@ -1,0 +1,4 @@
+******étapes a faire lors de la création d'une map
+
+-sur le serveur:
+il faut alimenter les 2 methode returnFreeCellToWalkFunc et returnFreeCellToSpellFunc

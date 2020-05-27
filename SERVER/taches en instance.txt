@@ -1,0 +1,80 @@
+Lors de la création d'un personnage il faut lui attribuer les sorts qui devais être inscrite dans une table du genre classSpells qui n'est pas créée pour le moment et qui devera avoir la meme structure que la table spell
+
+il faut ajouter l'information skinTemplate pour les valeurs lors de l'invocation comme le sort 6 de naruto, on lui envoie les caractèristique mais pas la valeur skinTemplate qui vien sdetre créée
+	il faut aussi configurer le client pour qu'il choisi le bon skin celon cette valeur, pour le moment il force l'invocation a avoir le skin de naruto
+	pour ce fait il faut créer une table sur la Bdd qui contien id,skinTemplate,value, et le value correspond à la valeur du spriteSheet voulue dans les ressource de Nova
+	oubien de renseigner le champ skinTemplate directement par la valeur de spriteSheet du client
+
+il faut créer une methode qui permet de tuer un joueur directement dans un combat, pas la paine de retaper tout le code comme sur SERVER.Features.Handlers.pc Ln 35 -> 38
+
+Il faut annuler le faite d'identifier une invocation par le seul faite que son nom comporte un $, puisque ceci dois etre retirer et il aura un nom ordinaire, et pour l'identifier il faut vérifier avec la valeur owner qui dois avoir le nom de son lanceur
+	il faut ajouter le variable en bas dans playerInfo
+	public int playerID;	// id qui permet d'identifier le joueur qui dois remplacer l'identification par le nom, puisque ceci provoque un probleme quand une invocation porte le meme nom que son invocateur
+	cette playerID dois etre transmit au joueur lors de la commande SelectedPlayer avec les autres states
+
+il faut ajouter un evenement qui vérifie automatiquement quand la valeur vita d'un joueur est supérieur au nombre max, c-à-d quand un joueur reçois des points de vie, et quand le variable affected.currentHealth est solicité, un évenement (qui n'est pas créée pour le moment) dois etre lancé pour arrondire la valeur au pdv max, SERVER.Misc.percent.cs Ln 23 par ex et tous les codes qui booste la vita, utilisr les indexeurs get, set sur le variable playerInfo.currentHealth
+
+la notion delay dans l'effet na aucun effet, il faut ajouter un code sur le code qui vérifie tous les envoutements si leurs delay = 0 qu'il l'execute, si non il ne dois pas etre immediat
+
+Sur le client pour les sorts de 6,7,8,9, une modification a été faite sur le rawdata reçue, un autre parametre a été ajouté a la fin de la commande qui désigne de quel boost il s'agit, est se que des pm, pc, power, ou health (classe sort.cs, animSpellAction() Ln 2213
+	au lieu de 
+		cmd•spellTileGranted•narutox•6•19•8•0•5•typeRox:desinvocation|cd:False|chakra:neutre|deadList:narutox$ddir8|narutox$hi9ct:125:236:244|narutox:0:500:500•PcUsed:4
+	on ajoute le parametre health ou autre
+		//cmd•spellTileGranted•narutox•6•19•8•0•5•typeRox:desinvocation|cd:False|chakra:neutre|deadList:narutox$ddir8|narutox$hi9ct:125:236:244:health|narutox:0:500:500•PcUsed:4
+	donc il faut créer un seul code pour les sorts de boost et choisir de quel buust ils 'agit celon ce parametre
+
+l'effet boost n'est pas encore implementé pour le sort 10
+
+le sort 11 n'est pas opérationnel sur le serveur, et le sort 10 a un 2éme effet de boost qui na pas encore été implementé
+
+il faut utiliser la methode benchmark pour faire des testes de calcules de temps
+
+ll faut aouter des mots de censure lors de la création d'un personnage comme Bmp, Disconenct, Type, naruto, doton ...
+
+Il faut annuler l'option de définir une position par sa valeur X * 30 qui se trouve sur le waypoint et n'importe ou dans le code
+
+sur le SERVER la classe ConfirmSelectPlayerResponseMessage n'envoie pas un parametre sur la fin de la commande pour dire que le client été deja en combat
+
+cette cmd est introuvable sur le serveur, le client aussi envoie la requette mais na pas le handle de la commande, comment est se que le client récupére les données de positionnement des joueurs ??
+	JoinBattleInPreparationTimeResponseMessage.cs
+	Network.SendMessage("cmd•getPlayersPositionInBattle", true);
+
+Une information récupéré depuis le serveur n'a pas sa place
+	JoinBattleInPreparationTimeResponseMessage.cs	
+	string timestamp = commandStrings[4];
+	// sert a rien a supprimer peux etre du sereur ou bien n'est pas interpreté
+	
+Le decoReco ne marche pas en plein combat, mais marche ne waitTime, donc a prevoir une cmd
+
+il faut vérifier les valeurs retourné par la methode Start() battleStartPositions.cs, faire le controle si la valeur est differente de "NaN"
+
+Lorsqu'un joueur se co est qu'il été déjà en combat avant le serveur lui envoie la réponse "AutoSelectActorInBattleResponseMessage" et voici le code résponsable Ln461 :
+	// verification si le joueur été en combat pour le rediriger vers ce joueur
+	if (inBattle)
+	{
+		CommonCode.MyPlayerInfo.instance.pseudo = actor.pseudo;
+		CommonCode.MyPlayerInfo.instance.Event = "inBattle";
+	}
+	
+	on affecte le variable "CommonCode.MyPlayerInfo.instance.Event = "inBattle";" se qui ultérieurement utilisé lors du chargement de la map ou le joueur été dedon comme la map _0_0_0 ou Start Ln 117:
+		// check si le joueur été déjà en combat
+		if (CommonCode.MyPlayerInfo.instance.Event == "inBattle")       // ce systeme de DecoReco en combat dois etre implementé da, sma class AutoSelectActorInBattleResponseMessage
+		{
+			// on recréer l'image du joueur
+			CommonCode.RedrawPlayerAfterRespawnInBattle();
+			Network.SendMessage("cmd•requireBattleData", true);
+		}
+		
+		il faut faire extrere cette étape des map puisque ce travail dois etre fait lors de la reception de la cmd AutoSelectActorInBattleResponseMessage et pas apres chargement de map
+		penser a faire un Enum des event : CommonCode.MyPlayerInfo.instance.Event
+		
+il faut débuger la class AutoSelectActorInBattleResponseMessage, VS dis que des variables ne sont pas necessaire, étrange
+
+Il faut vérifier des methode comme CommonCode.ibPlayers_MouseOver si elle est utilisé que depuis 1 seul endroit pour la soustraire de la classe CommonCode et la mettre dansla bonne class comme SpawnActorResponseMessage
+
+contiuer le code Server.Network.cs Ln 400, remplacer la cmd "playerBlockedByAnotherPlayer" par "NewWayPointBlockedByAnotherActorResponseMessage"
+28464c
+
+chercher les cmd cmd•waypoint pour les remplacer avec d'autre commande, il y a cmd•waypoint•stop et cmd•waypoint•past
+
+les valeurs dotonChakraLevel ... n'ont pas le systeme d'ancienneté et sert a rien pour le moment

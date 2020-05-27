@@ -1,0 +1,65 @@
+Battle.state == "idle"	quand le joueur n'est pas en combat
+Battle.state == "Started"	quand le joueur est en combat
+(peux etre, a verifier si ca existe) Battle.state == "initialisation"	lors du lancement du combat en mode preparation
+*il faut modifier le boup de code sur la classe sort, methode animSpellAction, pour chaque classe a continuer le code 
+	if (playerOfSpell.Classe == "naruto")
+l'objet map qui represente l'image de l'arriere plant a un objet Tag qui represente la methode isFreeCell qui contiens les obstacles du map
+une autre methode pareil que isFreeCell se trouve et qui permet de savoir aussi les joueurs presents dans le map en mode combat, commune.CurMapFreeCellToSpell
+*lors de la connexion du joueur sur une map il recois une donné pour les objets sur le map non joueur qui sont de 2 type, dynamique qui se supprime apres un certain temps comme symbole de combat ou static comme un pnj a ajouter
+*lors de la creation d'une nouvelle map, il faut allimenter la methode commune.returnFreeCellFunc qui retourne le delegate qui pointe vers la methide isFreeCell
+*le declencheur du fin de combat se trouve dans la methode commune.showAnimDamageAbove apres la fin de l'affichage du personnage
+*il faut toujours allimenter la methode ChaneMap sur commune2.cs avec le nom de tous les map dispo
+*sur FreeCellToWalk on enregistre la pos de tous les obstacles peux importe leurs nature(qui bloque la ligne de vue comme arbre ou non comme eau)
+*sur FreeCellToSpell on enregistre la pos de tous les obstacles qui bloque pas la ligne de vus 
+*la formule de calcule des angles est:
+	pour le point A : (distance vertical en pixel) / (distance horizontal en nombre de tuile - 0.5)
+	pour le point B : (distance vertical en pixel) / (distance horizontal en nombre de tuile - 1.5)
+ // check s'il ya seulement 2 joueurs dans le combat, 1 dans chaque team
+ if (_battle.Team1.FindAll(f => f.Pseudo != (im.SenderConnection.Tag as PlayerInfo).Pseudo).Count == 0 || _battle.Team2.FindAll(f => f.Pseudo != (im.SenderConnection.Tag as PlayerInfo).Pseudo).Count == 0)
+*__clone_jutsu_naruto.Pseudo += "$" + commun.returnRandomID ();	// separateur entre le nom et le id de l'invocation, que le client dois faire un splite('$')[0] pour afficher que le nom de l'invoc	
+*les données d'un personnage se trouve sur l'objet (Bmp.ibPlayer.tag as playerInfo) et non Bmp.tag as playerInfo
+mais dans le cas d'un combat, il ya 2 endroit pour avoir les infos
+	battle.AllPlayersByOrder[0]....  ou (battle.AllPlayersByOrder[0].ibPlayer.tag as playerInfo)....
+normalement les 2 objets doivent etre synchronisé mais pour des raison de sureté pour notre personnage on peux acceder depuis l'objet playerinfoinbattle dans l'objet battle ou dans myplayerinfo.instance
+*lors de la création d'un nouveau sort, il faut ajouter ses envoutement dans la classe spellckecker sur le serveur Ln 1440			
+*lors d'un nouveau sort qui necessites des envoutements non, il faut modifier les parties concernés maus aussi lors du passage d'un tours, si le sort a un envoutement special ou commun comme SortID 0 ou 1, Serveur, SpellChecker.cs Ln 1480, methode spell Ln 24,
+sur le client common1 Ln 1670 MAIS rien a faire sur ce boup de code, just un check de fin d'envoutement, __spellTuiles_MouseClic Ln 1670, envoutementCheck Ln 6056, sort animSpellAction Ln 351
+*couleur terre :  new SolidBrush(Color.FromArgb(142, 91, 21))
+*couleur feu : new SolidBrush(Color.FromArgb(198, 0, 0))
+*couleur vent : new SolidBrush(Color.FromArgb(0, 197, 125))
+*couleur foudre : new SolidBrush(Color.FromArgb(215, 203, 0))
+*couleur eau : new SolidBrush(Color.FromArgb(12, 133, 255))
+*si une erreur s'affiche apres l'installation de phpmyadmin, on nous dis mcrypt 
+forum.ubuntu-fr.org/viewtopic.php?id=394874
+*quand on veux introduire le systeme de plusieurs joueur dans un combat, il faut créer un séparateur de states des joueurs pour le flag du combat, server Network.cs Ln 485
+*pour chaque sort d'invocations créée il faut ajouter son numéro de SortID dans la classe sorts.sort_d_invocation
+*il ya une methode isBusy() qui vérifie si notre personnage est occupé, donc si on créer un code qui fait en sorte qu'on ai occuper, a prendre en cosideration le traitement a 'intérieur de isBusy, a analyser
+*il reste a verifier pourquoi le code sur common2.cs drawSpellTiles(), la case selectionné n'est pas celle du joueur malgré que pe = 1, c la case de coté, si pe = 0, aucun case n'est selectionné, il faut peux etre passer par une autre methode qu'on lui passe par references les cases voulue au lieu de isAllowedSpellArea
+*quand en fait une modification sur l'enchainement des envoutement sur la methode envoutementCheck il faut aussi l'appliquer sur la methode RedrawSpellsWithCtrl
+
+
+http://openclassrooms.com/forum/sujet/nouveau-jeu-rpg-2d-nova-super-heroes
+http://www.developpez.net/forums/d1485023/applications/developpement-2d-3d-jeux/creation-jeux-video/nouveau-jeu-2d-rpg-naruto/#post8051689
+http://www.developpez.net/forums/d1447588/general-developpement/algorithme-mathematiques/algorithmes/algorithme-cases-ciblables-grille/#post8051331
+http://gum-gum-streaming.com/one-piece-8-vf/
+https://myaccount.payoneer.com/Login/Login.aspx?qaz=-1104061748
+http://www.jeuxvideo.com/forums/1-31-8588253-1-0-1-0-lignes-de-vue-des-idees-d-algorithme.htm
+Mesrine : L'Instinct de mort
+Les Gorilles
+des hommes sans loi
+dealer
+http://www.allocine.fr/film/meilleurs/genre-13018/pays-5001/decennie-2010/
+
+/////////////////////////////////////////////////////////////////////////
+Voici votre ID client
+1081492177017-p731gmj25ihndceptfniofng3j01pjr4.apps.googleusercontent.com
+
+Voici votre code secret client
+6xvHEEE5Fvtuvx71VpNuNn97 
+
+6xvHEEE5Fvtuvx71VpNuNn97 
+//////////////////////////////////////////////////////////////////////////
+Clé de l'API
+
+Votre clé d'API
+AIzaSyB_NcsIZO6HtXU4dQF7TW-HOha9PQdtOo0 

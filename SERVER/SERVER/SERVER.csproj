@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A6048C14-8185-4142-AF99-A8D727496731}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>SERVER</RootNamespace>
+    <AssemblyName>SERVER</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mysql.data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\..\Lidgren.Network.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Buff\defaultDamage.cs" />
+    <Compile Include="Buff\killSummonToBoost.cs" />
+    <Compile Include="Buff\summon.cs" />
+    <Compile Include="checkQuete.cs" />
+    <Compile Include="Cryptography\crypted_data.cs" />
+    <Compile Include="Cryptography\Algo\Encoding.cs" />
+    <Compile Include="DataBase\DataTables.cs" />
+    <Compile Include="Effects\Handlers\defaultDamage.cs" />
+    <Compile Include="Effects\Handlers\killSummonToBoost.cs" />
+    <Compile Include="Effects\Handlers\state.cs" />
+    <Compile Include="Effects\Handlers\summon.cs" />
+    <Compile Include="Effects\TypeEffect\allDirections.cs" />
+    <Compile Include="Effects\EffectBase\killSummonToBoost.cs" />
+    <Compile Include="Effects\TypeEffect\melee.cs" />
+    <Compile Include="Effects\TypeEffect\perpendicular.cs" />
+    <Compile Include="Effects\TypeEffect\self.cs" />
+    <Compile Include="Effects\TypeEffect\threeFrontalPerpendicular.cs" />
+    <Compile Include="Effects\ZoneEffect\rhombus.cs" />
+    <Compile Include="Effects\ZoneEffect\oneTile.cs" />
+    <Compile Include="Effects\ZoneEffect\plus.cs" />
+    <Compile Include="Effects\ZoneEffect\threeFrontalPerpendicular.cs" />
+    <Compile Include="Effects\ZoneEffect\zoneEffectTemplate.cs" />
+    <Compile Include="Enums\ActorClass.cs" />
+    <Compile Include="Enums\ActorSexe.cs" />
+    <Compile Include="Enums\animatedActions.cs" />
+    <Compile Include="Enums\battleState.cs" />
+    <Compile Include="Enums\BattleType.cs" />
+    <Compile Include="Enums\DisconnectReason.cs" />
+    <Compile Include="Enums\HiddenVillage.cs" />
+    <Compile Include="Enums\LDVChecker.cs" />
+    <Compile Include="Enums\Buff.cs" />
+    <Compile Include="Enums\Rang.cs" />
+    <Compile Include="Enums\Species.cs" />
+    <Compile Include="Enums\Spirit.cs" />
+    <Compile Include="Enums\spell_effect_target.cs" />
+    <Compile Include="Enums\Elements.cs" />
+    <Compile Include="Enums\SpellID.cs" />
+    <Compile Include="Enums\Team.cs" />
+    <Compile Include="Enums\Version.cs" />
+    <Compile Include="Features\Handlers\health.cs" />
+    <Compile Include="Features\Handlers\pc.cs" />
+    <Compile Include="Features\Handlers\pm.cs" />
+    <Compile Include="Features\Handlers\power.cs" />
+    <Compile Include="Fight\ApplyEffects.cs" />
+    <Compile Include="Enums\Effect.cs" />
+    <Compile Include="Fight\LDVChecker\allDirections.cs" />
+    <Compile Include="Fight\LDVChecker\perpendicular.cs" />
+    <Compile Include="Fight\LDVChecker\self.cs" />
+    <Compile Include="GlobalVariable.cs" />
+    <Compile Include="Main.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Misc\Criteria\Handlers\copy.cs" />
+    <Compile Include="Misc\Criteria\Handlers\ICriteria.cs" />
+    <Compile Include="Misc\Criteria\Handlers\percent.cs" />
+    <Compile Include="Misc\Criteria\Handlers\translation.cs" />
+    <Compile Include="Misc\Criteria\Handlers\other.cs" />
+    <Compile Include="Models\Generated\Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Network.cs" />
+    <Compile Include="Common.cs" />
+    <Compile Include="Net\Messages\CommandCaster.cs" />
+    <Compile Include="Net\Messages\Command_Delimitter_Char.cs" />
+    <Compile Include="Net\Messages\Request\DeleteActor\ConfirmDeleteActorRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\ConfirmSelectActorRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\Fight\Duel\DuelConfirmationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\SyncFeaturesRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\WayPoint\WayPointConfirmationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\CreateNewActorRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\DeleteActorRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\GrabingMapActorsInformationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\GrabingPlayersInformationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\GrabingMapObjectsInformationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\IRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\Authentification\AuthentificationRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\WayPoint\WayPointInteruptedByActorRequestMessage.cs" />
+    <Compile Include="Net\Messages\Request\WayPoint\WayPointTilePassedRequestMessage.cs" />
+    <Compile Include="Net\Messages\Response\DuelConfirmationAskingHimResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\DuelConfirmationAskingMeResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Map\MapObjetRemovedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\StartDuelBattleResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\UpdateHealthResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreatedActorSuccessfullyResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorVillageNotSelectedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorMaxCharactersReachedReponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorNameNotAllowedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorNameAlreadyUsedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Request\SessionZeroRequestMessage.cs" />
+    <Compile Include="Net\Messages\Response\DeleteActor\ConfirmDeleteActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Authentification\AuthentificationEmailNotValidatedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Authentification\AuthentificationGrantedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Authentification\AuthentificationResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Authentification\AuthentificationUserBusyResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\Authentification\AuthentificationUserNotAllowedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\ConfirmSelectActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\DeleteActor\DeleteActorNotFoundResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\DeleteActor\DeleteActorGrantedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\DeleteActor\DeleteActorIncorrectSecretAnswerResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\DeleteActor\DeleteActorManyActorsResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\CreateNewActor\CreateNewActorNameWrongSizeResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\GrabingMapInformationResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\GrabingMapObjectsInformationResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\JoinBattleInPreparationTimeResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\SyncFeaturesResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\UpdateStatsResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\WayPoint\WayPointBlockedByAnotherActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\WayPoint\WayPointInteruptedByActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\WayPoint\WayPointReplacedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\WayPoint\WayPointRejectedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\ActorDisconnectedResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\GrabingActorsInformationResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\IResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\AutoSelectActorInBattleResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\SpawnActorResponseMessage.cs" />
+    <Compile Include="Net\Messages\Response\VersionResponseMessage.cs" />
+    <Compile Include="Actor.cs" />
+    <Compile Include="Net\Messages\Response\WayPoint\WayPointNotSameAsMemorisedResponseMessage.cs" />
+    <Compile Include="Pnj_Interactions.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="isFreeCell.cs" />
+    <Compile Include="battelStartPositions.cs" />
+    <Compile Include="Battle.cs" />
+    <Compile Include="RawData\criteria.cs" />
+    <Compile Include="sorts.cs" />
+    <Compile Include="Network2.cs" />
+    <Compile Include="Fight\spellsChecker.cs" />
+    <Compile Include="AStart.cs" />
+    <Compile Include="Security.cs" />
+    <Compile Include="Spells\rasengan.cs" />
+    <Compile Include="Summon\MnemonicStatsDispatcher.cs" />
+    <Compile Include="Summon\StatsDispatcher.cs" />
+    <Compile Include="Tactic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.desktop">
+      <DeployService-TargetDirectoryId>Linux.DesktopApplications</DeployService-TargetDirectoryId>
+    </Content>
+    <Content Include="Models\Generated\Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
+    <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="map\" />
+  </ItemGroup>
+</Project>

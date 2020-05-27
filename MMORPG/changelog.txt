@@ -1,0 +1,36 @@
+*sandcastle permet de créer une documentation HTML ou help depuis les tags xml du projet, donc avant il faut documenter son application http://sandcastle.codeplex.com/
+*les cd des sorts transfert pc,pm,puissance na aucun effet, il faut penser a élargir le temps de bonus ou autre bonnus
+si le cd font un changement sur le boost, il faut modifier le code sur le client common1.cs envoutementCheck() Ln 4882
+*il faut verifier les données du boost selon les conditions "cd et bonus" sur la classe battle.cs SpellIcon1_MouseOver
+*penser a unifier le code sur SpellChecker.cs, calculateDom() concernant le rox qui dépand des elements
+mais le joueur reste comme meme en mode sennin si le sort a été lancé dans la partie précédante
+*pk l'image ne change pas quand le joueur click sur addspelpoint
+*quand un combat est débuté avec iruka et que le client deconnecte et il re, il se trouve tjr en combat, il faut donner a iruka une ia pour jouer ou cloturer le cobat quand le joueur deco
+
+cmd•challengeBegan•iruka#iruka#0##null/null/null#100#100#0#1000#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#5#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#pnj#2|narutox#naruto#30#kumo#52-153-201/253-197-134/12-46-88#500#500#4#200#100#200#300#400#500#600#500#3000#100#200#151#152#153#154#155#12#6#2#40#1#5#10#20#30#30#1#2#3#4#5#6#7#8#0#100#humain#0•14/7#16/5#18/7|14/10#16/12#18/10•10•VsPnj/iruka/FirstFight•iruka|16/5•narutox|16/12•initialisation•14/5#16/5#18/5•14/10#16/10#18/10
+cmd•BattleStarted•iruka#iruka##null/null
+
+Rec loadingParent = new Rec(new SolidBrush(Color.FromArgb(250, 213, 253)), new Point(0, 0), new Size(ScreenManager.WindowWidth, ScreenManager.WindowHeight), "__LoadingParent", Manager.typeGfx.top, true);
+Manager.manager.GfxTopList.Add(loadingParent);
+
+// classe
+Bmp classMask = new Bmp(@"gfx\general\classes\gray_illustrations\" + playerData[1] + ".dat", Point.Empty, "__classMask", Manager.typeGfx.top, true, 1);
+classMask.point = new Point((ScreenManager.WindowWidth / 2) - (classMask.rectangle.Width / 2), 20);
+loadingParent.Child.Add(classMask);
+
+
+GG 94.23.207.43:27060
+https://www.youtube.les com/watch?v=nJykJ9xJn3g
+https://www.youtube.com/watch?v=efQW9yiWXr0				errors in naruto
+https://www.youtube.com/watch?v=eCwcKEUcqcU				rendre un objet un rochet
+
+elharfiabdelkebir:123123
+
+https://www.youtube.com/watch?v=zZHLHrkvUt0&list=PLCuRg51-gw5VqYchUekCqxUS9hEZkDf6l&index=1
+https://www.youtube.com/user/hooplakidz
+https://www.youtube.com/watch?v=ryuV2k3yJ1w				naruto tous episode apres aparition de madara
+
+http://fr.wikipedia.org/wiki/Invocations_%28Naruto%29    les invocations de naruto
+http://naruto.wikia.com/wiki/Naruto_Uzumaki_Two_Thousand_Combo		attaque combo naruto
+http://www.developpez.net/forums/blogs/289831-the-morpher/b515/nova-super-heroies-nouveau-jeu-naruto-2d/ blog
+287618

@@ -1,0 +1,21 @@
+*se qu'il faut modifier lors de l'ajout d'un nouveau sort
+-sur le serveur :
+	class Sort.cs, Sort_Stats()							"ajouter les caractéristique du sort"
+	class SpellChecker.cs, spells()						"controles des sort"
+	class SpellChecker.cs, envoutementCheck() Ln 2622	"retirer le bonnus ajouté par le sort si le sort le donne"
+	class SpellChecker.cs, calculateDom()				"ajouter le sortID dans la partie de l'élément conserné"
+	si le sort donne un bonnus d'envoutement : ajouter son id dans la liste sort_de_bonnus  dans sorts.cs classe sorts
+-sur le client :
+	Common1.Cs envoutementCheck() Ln 4646
+	sorts.cs animSpellAction()
+	Sorts.sort() Ln 15 et d'autre endrois dépondament
+	common2.cs drawSpellTiles()
+	common2.cs __spellTuiles_MouseMove()
+	common2.cs __spellTuiles_MouseClic() <- si le sort necessite une condition special avant son lancement comme le sort futon rasen shuriken qui necessite le mode sennin
+	si le sort donne un bonnus d'envoutement : Battle.cs Ln SpellIcon1_MouseOver, ajouter son id dans la liste sort_de_bonnus  dans sorts.cs classe sorts
+	si le sort est un sort d'invocation a ajouter son id sur la liste sort_d_invocation dans sorts.cs classe sorts
+	SpriteSheetData.cs SpriteSheetData() 		"ajouter le rectangle du sort"
+	ajouter le id du sort dans la liste spellsID dans la methode dans sorts.cs s'il s'agit d'un sort de classe et non un sort auxiliaire
+	ajouter la fiche technique du sort sur common1.cs Methode DisplaySpellInfo(int sortID) pour afficher les infos sur le menu des sorts
+-il faut créer une image du sort sur le dossier icons\spells
+-si le sort donne un etat qui débloque des sorts, il faut alimenter la liste concerné sur sorts.cs comme sort_need_etat_sennin
