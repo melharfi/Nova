@@ -29,8 +29,9 @@ https://www.youtube.com/watch?v=ufQObcknmVY
 Partie 3
 https://www.youtube.com/watch?v=BCrMBdIy9xk
 
-The content is not to continue developping it (you still can if you want) cause there is a lot of issues and it was my first game coding try.
-Switching from old way of parsing network request/response not achieved (2 ways of handling network exist, from direct parsing to a reflection)
+I left the project as i said but you still can try if you can continue this project or start from scratch. cause there is a lot of issues and it was my first game coding try in fact, there's no known usage of POO, nor pattern, not reflection ...
+
+I did not finish to convert from old way handling network message by enumerating each packet to a better way by reflection but job not finished, and therefore there is 2 ways still coexist of handling packets.
 
 A lot of nomination issues, some english words, some frensh lol
 Need a lot of refactoring.
@@ -48,7 +49,7 @@ Unfortunatly the battle was possible before but after some changes (refactorisat
 There is a database inside "mmorpg.sql" must called mmorpg using mysql.
 No install, just look in the bin/Debug both for server and client.
 
-some users is already there
+some accounts is already database
 username : admin, admin2, admin3, admin4, morpher
 same password : 123456
 
